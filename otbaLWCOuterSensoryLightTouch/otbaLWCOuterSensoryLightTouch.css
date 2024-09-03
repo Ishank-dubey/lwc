@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+}
+
+.circleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* This ensures the canvas does not intercept any mouse events */
+}

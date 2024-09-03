@@ -1,0 +1,39 @@
+<template>
+    <slot>        
+
+          <!-- Canvas for body image -->
+          <template if:true={imageLoaded}>
+              <div class="canvas-container">
+                  <canvas class="circleCanvas" width={imageWidth} height={imageHeight} onclick={handleCanvasClick}></canvas>
+              </div>
+              <div class="slds-p-around_medium">
+                    <lightning-icon class="custom-icon" onclick={clickMeRefresh} icon-name='action:refresh' alternative-text="See the already selected body locations." size='x-small' ></lightning-icon>
+                    <span style="margin-right: 8px;"></span>
+                    <lightning-helptext  content="Click to view the selected body locations."></lightning-helptext>
+              </div>             
+          </template>
+
+          <!-- Dropdown Select -->
+          <div class="dropdown-container">
+              <omnistudio-combobox options={_realtimeOptions}
+                                  label={_propSetMap.label}
+                                  class={_styleClasses.input}
+                                  required="true"
+                                  required-label={allCustomLabelsUtil.OmniRequired}
+                                  tab-index={tabIndex}
+                                  onchange={handleCanvasClick}                                  
+                                  theme={_theme}
+                                  value={elementValue}
+                                  field-level-help={_handleHelpText}
+                                  field-level-help-position={_propSetMap.helpTextPos}
+                                  data-refresh={refresh}
+                                  read-only="true"
+                                  data-show-lookup="false"
+                                  label-classes={labelClasses}
+                                  message-when-value-missing={_messageWhenValueMissing}
+                                  data-omni-input
+                                  disabled>                  
+              </omnistudio-combobox>
+          </div>
+      </slot>    
+    </template>

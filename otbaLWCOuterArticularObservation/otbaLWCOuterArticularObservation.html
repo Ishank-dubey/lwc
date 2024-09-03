@@ -1,0 +1,18 @@
+<template>
+    <omnistudio-omniscript-formula json-def={jsonDef}
+                      data-omni-key={jsonDef.name}
+                      json-data={jsonData}
+                      layout={layout}
+                      resume={resume}
+                      script-header-def={scriptHeaderDef}>
+    </omnistudio-omniscript-formula> 
+     
+    <slot>
+        <div class="container">
+            <img src={jointImage} onmousemove={handleCanvasMousemove} onmouseout={handleCanvasMouseout}></img>
+            <template if:true={imageLoaded}>
+                <canvas class="circleCanvas" width={imageWidth} height={imageHeight}></canvas>
+            </template>
+        </div>  
+    </slot>
+  </template>
